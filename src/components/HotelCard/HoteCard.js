@@ -20,7 +20,8 @@ const HotelCard = ({ hotel }) => {
   }, [hotel]);
   return (
     <div className="max-w-7xl my-6" data-testid="hotel-card">
-      <div className="flex flex-col md:flex-row w-full bg-white overflow-hidden pr-2">
+      <div className="flex flex-col md:flex-row w-full bg-white overflow-hidden pr-2 relative">
+        <div className="absolute top-2 left-0 bg-white p-2 text-sm">{offer.promotion.title}</div>
         <div className="md:w-48 md:h-48 md:mr-4">
           <ImageWithLoader
             src={previewImage.url}
