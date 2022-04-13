@@ -1,7 +1,7 @@
-import {useState, useMemo} from 'react';
+import { useState, useMemo } from "react";
 import Select from "../Select/Select";
 import { get } from "lodash";
-import HotelCard from '../HotelCard/HoteCard';
+import HotelCard from "../HotelCard/HoteCard";
 
 const SORT_OPTIONS = [
   {
@@ -33,11 +33,13 @@ const HotelList = ({ hotels }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
       <div className="flex justify-between">
-        <p>
-          <span className="font-medium">{hotels.length}</span>{" "}
-          <span className="italic">hotels in</span>{" "}
-          <span className="font-medium">Sydney</span>
-        </p>
+        {sortedHotels.length > 0 && (
+          <p>
+            <span className="font-medium">{sortedHotels.length}</span>{" "}
+            <span className="italic">hotels in</span>{" "}
+            <span className="font-medium">Sydney</span>
+          </p>
+        )}
         <div className="flex justify-center">
           <div className="mb-3 xl:w-96 text-right">
             <Select
@@ -49,7 +51,7 @@ const HotelList = ({ hotels }) => {
         </div>
       </div>
       {sortedHotels.map((hotel) => {
-        return <HotelCard hotel={hotel} key={hotel.id}/>;
+        return <HotelCard hotel={hotel} key={hotel.id} />;
       })}
     </div>
   );
