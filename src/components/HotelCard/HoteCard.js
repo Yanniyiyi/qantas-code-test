@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import ImageWithLoader from "../ImageWithLoader/ImageWithLoader";
 import PriceBox from "../PriceBox/PriceBox";
+import Rating from "../Rating/Rating";
 
 const CANCELLATION_TYPES = {
   FREE_CANCELLATION: "Free cancellation",
@@ -34,6 +35,10 @@ const HotelCard = ({ hotel }) => {
                 <h3 className="mb-2 md:mb-0 mr-2 text-lg leading-tight font-medium text-black hover:underline">
                   {property.title}
                 </h3>
+                <Rating
+                  score={rating.ratingValue}
+                  ratingType={rating.ratingType}
+                />
               </div>
               <span className="text-gray-400 text-sm">{addressStr}</span>
             </div>
