@@ -8,15 +8,19 @@ import HotelList from "./components/HotelList/HotelList";
 function App() {
   const [hotels, setHotels] = useState([]);
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchHotels = async () => {
       try {
+        setLoading(true);
         const {
           data: { results },
         } = await getHotels();
         setHotels(results);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         setError(error);
       }
     };
@@ -32,11 +36,8 @@ function App() {
           </a>
         </div>
       </div>
-      {error ? (
-        <p>Sorry, something went wrong</p>
-      ) : (
-        <HotelList hotels={hotels} />
-      )}
+      {!loading && error &&  <p>Sorry, something went wrong</p>}
+      {!loading && !error &&   <HotelList hotels={hotels} />}
     </div>
   );
 }

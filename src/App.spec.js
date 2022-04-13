@@ -17,9 +17,7 @@ describe("Component: App", () => {
     server.use(
       getHotelError
     );
-
     render(<App />);
-    
     const errorMessage = await screen.findByText(/something went wrong/i);
     expect(errorMessage).toBeInTheDocument();
 
