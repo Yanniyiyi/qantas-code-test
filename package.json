@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "npx playwright test"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.21.0",
     "autoprefixer": "^10.4.4",
     "msw": "^0.39.2",
     "postcss": "^8.4.12",

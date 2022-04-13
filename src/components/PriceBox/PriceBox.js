@@ -9,7 +9,7 @@ function PriceBox({ price, saving, currency }) {
                 <span><strong>1</strong> nitght total({currency})</span>
             </div>
             <div className="text-4xl flex items-start py-1">
-                <span className="text-lg">{DOLLAR_SIGN[currency]}</span><span>{price}</span>
+                <span className="text-lg">{DOLLAR_SIGN[currency]}</span><span data-testid="price">{price}</span>
             </div>
             {saving && <div className="py-1  text-red-400 flex items-start text-right text-sm md:text-xl">
                 <span>Save {DOLLAR_SIGN[currency]}{saving}</span><span className="text-sm">~</span>
