@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import './App.css';
+import "./App.css";
 
 import logo from "./assets/qantas-logo.png";
 import { getHotels } from "./api/HotelAPI";
+import HotelList from "./components/HotelList/HotelList";
 
 function App() {
   const [hotels, setHotels] = useState([]);
@@ -34,7 +35,7 @@ function App() {
       {error ? (
         <p>Sorry, something went wrong</p>
       ) : (
-        <>list</>
+        <HotelList hotels={hotels} />
       )}
     </div>
   );
