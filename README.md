@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo Link
-Open [Demo link in Vercel](https://qantas-code-test-tkwzy4pzr-yanniyiyi.vercel.app/) to view it in your browser.
+Open [Demo link in Vercel](https://qantas-code-test.vercel.app/) to view it in your browser.
 
 ## Available Scripts
 
