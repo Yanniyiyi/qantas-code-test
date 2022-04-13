@@ -1,17 +1,33 @@
+import {useState, useMemo} from 'react';
 import Select from "../Select/Select";
+import { get } from "lodash";
 
 const SORT_OPTIONS = [
   {
     name: "Price low to high",
-    value: "price low to high",
+    value: "ascending-offer.displayPrice.amount",
   },
   {
     name: "Price high to low",
-    value: "price high to low ",
+    value: "descending-offer.displayPrice.amount",
   },
 ];
 const HotelList = ({ hotels }) => {
-  const onSortByChangeHandler = () => {};
+  const [sortConfig, setSortConfig] = useState(SORT_OPTIONS[0].value);
+
+  const onSortByChangeHandler = (e) => {
+    setSortConfig(e.target.value);
+  };
+
+  const sortedHotels = useMemo(() => {
+    const [order, key] = sortConfig.split("-");
+    const sortedHotels = [...hotels].sort((a, b) => {
+      return order === "ascending"
+        ? get(a, key) - get(b, key)
+        : get(b, key) - get(a, key);
+    });
+    return sortedHotels;
+  }, [hotels, sortConfig]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -31,8 +47,8 @@ const HotelList = ({ hotels }) => {
           </div>
         </div>
       </div>
-      {hotels.map((hotel) => {
-        return <div>{hotel.id}</div>;
+      {sortedHotels.map((hotel) => {
+        return <div>{hotel.offer.displayPrice.amount}</div>;
       })}
     </div>
   );
