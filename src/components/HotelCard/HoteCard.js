@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import ImageWithLoader from "../ImageWithLoader/ImageWithLoader";
+import PriceBox from "../PriceBox/PriceBox";
 
 const CANCELLATION_TYPES = {
   FREE_CANCELLATION: "Free cancellation",
@@ -39,7 +40,11 @@ const HotelCard = ({ hotel }) => {
             <div className="mb-4 text-red-400 underline">{offer.name}</div>
             <div className="text-gray-400 text-sm">{cancellationType}</div>
           </div>
-          <div className="flex"></div>
+          <PriceBox
+            price={offer.displayPrice.amount}
+            currency={offer.displayPrice.currency}
+            saving={offer.savings?.amount}
+          ></PriceBox>
         </div>
       </div>
     </div>
