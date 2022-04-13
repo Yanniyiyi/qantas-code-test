@@ -1,6 +1,7 @@
 import {useState, useMemo} from 'react';
 import Select from "../Select/Select";
 import { get } from "lodash";
+import HotelCard from '../HotelCard/HoteCard';
 
 const SORT_OPTIONS = [
   {
@@ -48,7 +49,7 @@ const HotelList = ({ hotels }) => {
         </div>
       </div>
       {sortedHotels.map((hotel) => {
-        return <div>{hotel.offer.displayPrice.amount}</div>;
+        return <HotelCard hotel={hotel} key={hotel.id}/>;
       })}
     </div>
   );

@@ -1,7 +1,7 @@
 const Select = ({ label= 'Sort By', options, onChange, id= 'select' }) => {
     return (
         <div>
-          <label htmlFor="select" className="font-medium">{label} </label>
+          <label htmlFor={id} className="font-medium">{label} </label>
           <select
             aria-label={label}
             className="border"
