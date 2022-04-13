@@ -31,7 +31,7 @@ const HotelCard = ({ hotel }) => {
         <div className="border-t-2 border-b-2 w-full flex justify-between">
           <div className="p-2 flex flex-col justify-between">
             <div className="mt-2 mb-4">
-              <div className="flex flex-col md:flex-row items-center">
+              <div className="flex flex-col md:flex-row items-start md:items-center">
                 <h3 className="mb-2 md:mb-0 mr-2 text-lg leading-tight font-medium text-black hover:underline">
                   {property.title}
                 </h3>
